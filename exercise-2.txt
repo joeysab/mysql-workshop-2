@@ -1,0 +1,45 @@
+mysql> INSERT INTO Account (email, password, createdOn, modifiedOn) VALUES ('joey@email.com', 'supersecret', '2016-02-03 18:30:30', '2016-03-03 19:30:00');                                                                                                             
+Query OK, 1 row affected (0.00 sec)
+
+
+mysql> SELECT * FROM Account;
++----+----------------+-------------+---------------------+---------------------+
+| id | email          | password    | createdOn           | modifiedOn          |
++----+----------------+-------------+---------------------+---------------------+
+|  1 | joey@email.com | supersecret | 2016-02-03 18:30:30 | 2016-03-03 19:30:00 |
++----+----------------+-------------+---------------------+---------------------+
+1 row in set (0.00 sec)
+
+mysql> INSERT INTO AddressBook (accountId, name, createdOn, modifiedOn) VALUES (1, 'Joseph', '2016-02-03 18:30:30', '2016-03-03 19:30:00');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM AddressBook;
++----+-----------+--------+---------------------+---------------------+
+| id | accountId | name   | createdOn           | modifiedOn          |
++----+-----------+--------+---------------------+---------------------+
+|  1 |         1 | Joseph | 2016-02-03 18:30:30 | 2016-03-03 19:30:00 |
++----+-----------+--------+---------------------+---------------------+
+1 row in set (0.00 sec)
+
+INSERT INTO Entry (addressBookId, firstName, lastName, birthday, type, subtype, contentLineOne, contentLineTwo, contentLineThree, contentLineFour, contentLineFive) VALUES (1, 'Joseph','Sabbagh', '1987-03-03', 'home', 'work', 'this is a test1', 'this is a test2', 'this is a test3', 'this is a test4', 'this is a test5');                                                                     
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+
+INSERT INTO Entry (addressBookId, firstName, lastName, birthday, type, subtype, contentLineOne, contentLineTwo, contentLineThree, contentLineFour, contentLineFive) VALUES (1, 'Mark','Smith', '1980-01-02', 'home', 'work', 'this is a test1', 'this is a test2', 'this is a test3', 'this is a test4', 'this is a test5');                                                                     
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+
+INSERT INTO Entry (addressBookId, firstName, lastName, birthday, type, subtype, contentLineOne, contentLineTwo, contentLineThree, contentLineFour, contentLineFive) VALUES (1, 'Steven','Tremblay', '1970-01-02', 'home', 'work', 'this is a test1', 'this is a test2', 'this is a test3', 'this is a test4', 'this is a test5');                                                                     
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+
+mysql> SELECT * FROM Entry;
++----+---------------+-----------+----------+---------------------+------+---------+-----------------+-----------------+------------------+-----------------+-----------------+
+| id | addressBookId | firstName | lastName | birthday            | type | subtype | contentLineOne  | contentLineTwo  | contentLineThree | contentLineFour | contentLineFive |
++----+---------------+-----------+----------+---------------------+------+---------+-----------------+-----------------+------------------+-----------------+-----------------+
+|  1 |             1 | Joseph    | Sabbagh  | 1987-03-03 00:00:00 | home |         | this is a test1 | this is a test2 | this is a test3  | this is a test4 | this is a test5 |
+|  2 |             1 | Mark      | Smith    | 1980-01-02 00:00:00 | home |         | this is a test1 | this is a test2 | this is a test3  | this is a test4 | this is a test5 |
+|  3 |             1 | Mark      | Smith    | 1980-01-02 00:00:00 | home |         | this is a test1 | this is a test2 | this is a test3  | this is a test4 | this is a test5 |
+|  4 |             1 | Steven    | Tremblay | 1970-01-02 00:00:00 | home |         | this is a test1 | this is a test2 | this is a test3  | this is a test4 | this is a test5 |
++----+---------------+-----------+----------+---------------------+------+---------+-----------------+-----------------+------------------+-----------------+-----------------+
+4 rows in set (0.00 sec)
